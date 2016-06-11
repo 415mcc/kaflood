@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        max-width: 300px;
+        font-size: 14px;
+      }
+      .kt-field {
+        border-color: #7c54c1;
+        border-width: small;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+      .kt-field:focus {
+        outline: none;
+      }
+      .kt-btn {
+        padding-left: 15%;
+        padding-right: 15%;
+        border-radius: 40%;
+        border-color: #7c54c1;
+        background-color: #8a5cd7;
+        color: white;
+        margin-top: 5px;
+      }
+      .kt-btn:focus {
+        outline: none;
+      }
+      .kt-title {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: #8a5cd7;
+      }
+    </style>
+  </head>
+  <body>
+    <h4 class="kt-title">Game PIN:</h4>
+    <input type="text" class="kt-field" id="pin-input">
+
+    <h4 class="kt-title">Names:</h4>
+    <div id="name-list"></div>
+
+    <button type="button" class="kt-btn" id="join-btn">Kaflood!</button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

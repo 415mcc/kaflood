@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Kaflood!",
+  "version": "0.1",
+  "version_name": "0.1-dev",
+  "author": "lachlan@lachm.com",
+  "description": "Join a Kahoot! game multiple times",
+
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png",
+    "500": "images/icon500.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    },
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "tabs",
+    "*://kahoot.it/*"
+  ],
+
+  "web_accessible_resources": ["inject.js"]
+}
