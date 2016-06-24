@@ -4,7 +4,6 @@
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
         max-width: 300px;
         font-size: 14px;
       }
@@ -35,17 +34,151 @@
         margin-bottom: 5px;
         color: #8a5cd7;
       }
+      .table {
+        display: table;
+        border-spacing: 10px;
+      }
+      .row {
+        display: table-row;
+      }
+      .game-btn {
+        display: table-cell;
+        padding: 20px;
+        border-radius: 25%;
+        cursor: pointer;
+      }
+      #triangle-btn {
+        background-color: #de1831;
+      }
+      .triangle {
+        position: relative;
+        top: -4px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 18px solid white;
+      }
+      #hex-btn {
+        background-color: #1f57a5;
+      }
+      .hex::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-right: 8px solid white;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        position: absolute;
+        left: -8px;
+      }
+      .hex::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 8px solid white;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        position: absolute;
+        right: -8px;
+      }
+      .hex {
+        width: 12px;
+        height: 24px;
+        background-color: white;
+        margin-left: 8px;
+        margin-right: 8px;
+        position: relative;
+      }
+      #circle-btn {
+        background-color: #d89e00;
+      }
+      .circle {
+        border-radius: 50%;
+        width: 27px;
+        height: 27px;
+        background-color: white;
+      }
+      #square-btn {
+        background-color: #60991f;
+      }
+      .square {
+        width: 27px;
+        height: 27px;
+        background-color: white;
+      }
+      #tab-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        overflow: scroll;
+        width: 100%;
+        height: 150px;
+        border: 0.25em solid #7c54c1;
+        border-radius: 2%;
+      }
+      #tab-list li {
+        font-size: 1.5em;
+        white-space: nowrap;
+        margin: 5%;
+      }
+      #tab-list li span {
+        -webkit-user-select: none;
+      }
+      #tab-list li span:first-child {
+        cursor: pointer;
+        color: white;
+        background-color: #de1831;
+        border-radius: 20%;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+      #loading {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(124, 84, 193, 0.75);
+        color: white;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 20%;
+      }
     </style>
   </head>
   <body>
-    <h4 class="kt-title">Game PIN:</h4>
-    <input type="text" class="kt-field" id="pin-input">
+    <div hidden id="start-ui">
+      <h4 class="kt-title">Game PIN:</h4>
+      <input type="text" class="kt-field" id="pin-input">
 
-    <h4 class="kt-title">Names:</h4>
-    <div id="name-list"></div>
+      <h4 class="kt-title">Names:</h4>
+      <div id="name-list"></div>
 
-    <button type="button" class="kt-btn" id="join-btn">Kaflood!</button>
+      <button type="button" class="kt-btn" id="join-btn">Kaflood!</button>
+    </div>
 
+    <div hidden id="game-ui">
+      <div class="table">
+        <div class="row">
+          <div class="game-btn" id="triangle-btn"><div class="triangle"></div></div>
+          <div class="game-btn" id="hex-btn"><div class="hex"></div></div>
+        </div>
+        <div class="row">
+          <div class="game-btn" id="circle-btn"><div class="circle"></div></div>
+          <div class="game-btn" id="square-btn"><div class="square"></div></div>
+        </div>
+      </div>
+      <ul id="tab-list">
+      </ul>
+      <button type="button" class="kt-btn" id="clear-all-btn">Remove All Tabs!</button>
+    </div>
+
+    <div hidden id="loading">
+      Loading...
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
