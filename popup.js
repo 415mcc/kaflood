@@ -1,3 +1,5 @@
+/* global chrome:false */
+
 const nameFields = [];
 const nameList = document.getElementById('name-list');
 const startUI = document.getElementById('start-ui');

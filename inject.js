@@ -1,3 +1,5 @@
+/* global angular:false */
+
 // time between checks for the form elements
 const WAIT_ELEM_APPEAR = 50;
 // time to wait before checking if game PIN submission was a success
@@ -18,11 +20,9 @@ function submitPIN (spanId, callback) {
       elem => elem.hasAttribute('ng-submit') &&
         elem.getAttribute('ng-submit') === 'joinSession(gameId)'
     );
-    if (possibles.length > 0) {
-      return possibles[0];
-    } else {
-      return null;
-    }
+    if (possibles.length > 0) return possibles[0];
+
+    return null;
   }
 
   function submit () {
@@ -32,7 +32,7 @@ function submitPIN (spanId, callback) {
 
       setTimeout(() => {
         let pinInput = document.getElementById('inputSession');
-        if (pinInput != null && pinInput.classList.contains('invalid')) {
+        if (pinInput !== null && pinInput.classList.contains('invalid')) {
           setTimeout(submit, WAIT_AFTER_INVALID);
         }
       }, WAIT_CHECK_INVALID);

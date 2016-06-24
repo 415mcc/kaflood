@@ -1,3 +1,5 @@
+/* global chrome:false */
+
 function addTabToStorage (tab, callback) {
   chrome.storage.local.get('tabs', items => {
     let setVal;

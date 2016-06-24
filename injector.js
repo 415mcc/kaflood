@@ -1,3 +1,5 @@
+/* global chrome:false */
+
 function injectScript (fileName) {
   let script = document.createElement('script');
   script.src = chrome.extension.getURL(fileName);
